@@ -1,13 +1,14 @@
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const { getFirestore, collection, getDocs } = require("firebase/firestore/lite") 
-const yt = {
+const { initializeApp } = require("@firebase/app");
+const { getDatabase, ref, onValue } = require("@firebase/database");
+/*const yt = {
     id: "https://id.blooket.com",
     questionfielder: "https://qf.blooket.com",
     play: "https://play.blooket.com",
     dashboard: "https://dashboard.blooket.com",
     firebase: "https://fb.blooket.com",
     www: "https://www.blooket.com"
-};
+};/*
 /*var nA = qa.create({
     baseURL: yt.firebase,
     withCredentials: !0
@@ -17,6 +18,7 @@ var animalnames /*d*/ = ["Chick", "Chicken", "Cow", "Goat", "Horse", "Pig", "She
 var yHe = {
     apiKey: "AIzaSyCA-cTOnX19f6LFnDVVsHXya3k6ByP_MnU",
     authDomain: "blooket-2020.firebaseapp.com",
+    databaseURL:"blooket-2020.firebaseapp.com",
     projectId: "blooket-2020",
     storageBucket: "blooket-2020.appspot.com",
     messagingSenderId: "741533559105",
@@ -31,18 +33,22 @@ module.exports = class blooket{
     isRandomNames;
     constructor(){};
     async join(id,name){
-       /* var landings = await (await fetch("https://classic.blooket.com/api/playersessions/landings",{headers:{
+        var p = {
+            gameCode: id
+        };
+        var inportantthing = yield Gt.post("https://ac.blooket.com/api/playersessions/hosted", p);
+        var t = o.data.t;
+        var landings = await (await fetch("https://classic.blooket.com/api/playersessions/landings",{
+            
             method: "POST",
             body:JSON.stringify({
 
             }),
             headers: {
                 "Content-type": "application/json"
-              }
-        }})).json();*/
-        var app = initializeApp(yHe);
-       console.log(collection(getFirestore(app),"id"));
-return
+            
+        }})).json();
+       
        var testres = await (await fetch(`https://fb.blooket.com/c/firebase/id?id=${id}`)).json();
         if(testres.success == false){
             throw new Error(testres.msg);

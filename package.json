@@ -1,7 +1,5 @@
 {
     "dependencies": {
-        "@firebase/app": "^0.10.0",
-        "@firebase/database": "^1.0.4",
         "node-fetch": "^3.3.2",
         "ws": "^8.16.0"
     },
