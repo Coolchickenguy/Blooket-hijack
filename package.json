@@ -1,28 +1,28 @@
 {
     "dependencies": {
-      "uuid": "^9.0.1",
-      "ws": "^8.16.0"
+        "node-fetch": "^3.3.2",
+        "uuid": "^9.0.1",
+        "ws": "^8.16.0"
     },
     "name": "blooket-hijack",
     "version": "1.0.0",
     "description": "Hijack blooketr",
     "main": "index.js",
-    "devDependencies": {},
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/fermyon/Blooket-hijack.git"
+        "type": "git",
+        "url": "git+https://github.com/fermyon/Blooket-hijack.git"
     },
     "keywords": [
-      "Blooket",
-      "hijack"
+        "Blooket",
+        "hijack"
     ],
     "author": "Coolchickenguy",
     "license": "MIT",
     "bugs": {
-      "url": "https://github.com/fermyon/Blooket-hijack/issues"
+        "url": "https://github.com/fermyon/Blooket-hijack/issues"
     },
     "homepage": "https://github.com/fermyon/Blooket-hijack#readme"
-  }
+}
