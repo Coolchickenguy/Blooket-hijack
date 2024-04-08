@@ -12,7 +12,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fermyon/Blooket-hijack.git"
+        "url": "git+https://github.com/Coolchickenguy/Blooket-hijack.git"
     },
     "keywords": [
         "Blooket",
@@ -21,7 +21,7 @@
     "author": "Coolchickenguy",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/fermyon/Blooket-hijack/issues"
+        "url": "https://github.com/Coolchickenguy/Blooket-hijack/issues"
     },
-    "homepage": "https://github.com/fermyon/Blooket-hijack#readme"
+    "homepage": "https://github.com/Coolchickenguy/Blooket-hijack#readme"
 }
