@@ -1,6 +1,5 @@
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const { initializeApp } = require("@firebase/app");
-const { getDatabase, ref, onValue } = require("@firebase/database");
+var https = require("https");
+//const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 /*const yt = {
     id: "https://id.blooket.com",
     questionfielder: "https://qf.blooket.com",
@@ -15,16 +14,9 @@ const { getDatabase, ref, onValue } = require("@firebase/database");
 });*/
 var animalnames /*d*/ = ["Chick", "Chicken", "Cow", "Goat", "Horse", "Pig", "Sheep", "Duck", "Alpaca", "Dog", "Cat", "Rabbit", "Goldfish", "Hamster", "Turtle", "Kitten", "Puppy", "Bear", "Moose", "Fox", "Raccoon", "Squirrel", "Owl", "Hedgehog", "Deer", "Wolf", "Beaver", "Tiger", "Orangutan", "Cockatoo", "Parrot", "Anaconda", "Jaguar", "Macaw", "Toucan", "Panther", "Capuchin", "Gorilla", "Hippo", "Rhino", "Giraffe", "Snowy Owl", "Polar Bear", "Arctic Fox", "Baby Penguin", "Penguin", "Arctic Hare", "Seal", "Walrus"];
 /*_ae*/ var colors = ["Light Blue", "Black", "Red", "Purple", "Pink", "Orange", "Lime", "Green", "Teal", "Tan", "Maroon", "Gray", "Mint", "Salmon", "Burgandy", "Baby Blue", "Dust", "Brown", "Dull Blue", "Yellow", "Blue"];
-var yHe = {
-    apiKey: "AIzaSyCA-cTOnX19f6LFnDVVsHXya3k6ByP_MnU",
-    authDomain: "blooket-2020.firebaseapp.com",
-    databaseURL:"blooket-2020.firebaseapp.com",
-    projectId: "blooket-2020",
-    storageBucket: "blooket-2020.appspot.com",
-    messagingSenderId: "741533559105",
-    appId: "1:741533559105:web:b8cbb10e6123f2913519c0",
-    measurementId: "G-S3H5NGN10Z"
-};
+async function post(url,json){
+https.request()
+}
 module.exports = class blooket{
     id;
     name;
@@ -33,11 +25,19 @@ module.exports = class blooket{
     isRandomNames;
     constructor(){};
     async join(id,name){
+        console.log(id)
+        var testres = await (await fetch(`https://fb.blooket.com/c/firebase/id?id=${id}`)).text();
+        console.log(testres, "res")
+        if(testres.success == false){
+            throw new Error(testres.msg);
+        }
+
         var p = {
             gameCode: id
         };
-        var inportantthing = yield Gt.post("https://ac.blooket.com/api/playersessions/hosted", p);
-        var t = o.data.t;
+        var hosted = post("https://ac.blooket.com/api/playersessions/hosted", p);
+        var t = hosted.data.t;
+        var r = hosted.data.n;
         var landings = await (await fetch("https://classic.blooket.com/api/playersessions/landings",{
             
             method: "POST",
@@ -48,14 +48,12 @@ module.exports = class blooket{
                 "Content-type": "application/json"
             
         }})).json();
-       
-       var testres = await (await fetch(`https://fb.blooket.com/c/firebase/id?id=${id}`)).json();
-        if(testres.success == false){
-            throw new Error(testres.msg);
-        }
         this.isPlus = testres.isPlus;
         this.isRandomNames = testres.isRandomNames;
         this.id = id;
         this.name = name;
+        this.t  = t;
+        console.log(n);
+
     };
 }
