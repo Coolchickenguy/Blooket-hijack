@@ -18,11 +18,20 @@ var varables = {
 var app = initializeApp(varables);
 var it = getAuth(app);
 /*
-Mu.put("/c/firebase/join", {
+Mu.put("https://fb.blooket.com/c/firebase/join", {
                 id: e,
                 name: n
             });
 */
-var tojoin = fetch()
+var tojoin = fetch("https://fb.blooket.com/c/firebase/join",{
+            
+    method: "PUT",
+    body:JSON.stringify({
+
+    }),
+    headers: {
+        "Content-type": "application/json"
+    
+}})
 setPersistence(it,inMemoryPersistence);
 signInWithCustomToken(it,n)
