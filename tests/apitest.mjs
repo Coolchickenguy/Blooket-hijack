@@ -17,6 +17,12 @@ var varables = {
 };
 var app = initializeApp(varables);
 var it = getAuth(app);
+/*
+Mu.put("/c/firebase/join", {
+                id: e,
+                name: n
+            });
+*/
 var tojoin = fetch()
 setPersistence(it,inMemoryPersistence);
 signInWithCustomToken(it,n)
