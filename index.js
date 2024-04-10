@@ -1,5 +1,4 @@
-var https = require("https");
-//const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 /*const yt = {
     id: "https://id.blooket.com",
     questionfielder: "https://qf.blooket.com",
@@ -26,7 +25,9 @@ module.exports = class blooket{
     constructor(){};
     async join(id,name){
         console.log(id)
-        var testres = await (await fetch(`https://fb.blooket.com/c/firebase/id?id=${id}`)).text();
+        var testres = await (await fetch(`https://fb.blooket.com/c/firebase/id?id=${id}`,  {headers: {
+            cookie: 'bsid=MTcxMjY5ODMxN3x6U3I5am5VekxWZ0l6NVM2X3F4eWlaU1huaVFySE5aaWV5V05oQjNtUXVkV2tfcnlFOHZrczV4Wm4wST18qbo4Axp6mqz-_F40kAFQhRj-nrAaEuB2M1R-QBWL1D4='
+    }})).text();
         console.log(testres, "res")
         if(testres.success == false){
             throw new Error(testres.msg);
